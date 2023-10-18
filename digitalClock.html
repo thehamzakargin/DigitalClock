@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; UTF-8">
+<title>Digtal Clock</title>
+<style>
+    #clock{
+        padding:10px;
+        background-color: aquamarine;
+        border: 1px solid rebeccapurple;
+        color: rgb(4, 16, 5);
+    }
+</style>
+
+</head>
+<body>
+<div style="width: 150px; margin:25px auto;">
+    <span id="clock"></span>
+</div>
+
+
+<script type="text/javascript" language="javascript">
+    function add(Value){
+        var makeItString = Value.toString();
+        var long = makeItString.length;
+        if(long==1){
+            return "0" + makeItString;
+        }else{
+            return makeItString
+        }      
+    }
+
+    function updateClock(){
+        var time = new Date();
+        var clockValue = time.getHours();
+        var minutesValue = time.getMinutes();
+        var secondesValue = time.getSeconds();
+        document.getElementById("clock").innerHTML = add(clockValue) + ":" + add(minutesValue) + ":" + add(secondesValue);
+    }
+setInterval(updateClock, 1000)
+
+
+
+
+</script>
+
+</body>
